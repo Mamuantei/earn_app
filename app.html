@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>Dashboard</title>
+</head>
+<body>
+
+<h2>Dashboard</h2>
+
+<button onclick="play()">Play Game</button> <button onclick="withdraw()">Withdraw</button> <button onclick="logout()">Logout</button>
+
+<script>
+function play(){
+  alert("Game coming soon 🎮");
+}
+
+function withdraw(){
+  alert("Withdraw coming soon 💰");
+}
+
+function logout(){
+  localStorage.clear();
+  window.location = "login.html";
+}
+</script>
+
+</body>
+</html>
