@@ -9,6 +9,10 @@ app.get("/", (req, res) => {
 res.send("🔥 BACKEND RUNNING ✅");
 });
 
+app.get("/", (req, res) => {
+  res.send("🔥 BACKEND RUNNING ✅");
+});
+
 app.post("/login", (req, res) => {
 const { email, password } = req.body;
 
