@@ -11,13 +11,31 @@
 <button onclick="goLogin()">Login</button> <button onclick="goSignup()">Signup</button>
 
 <script>
-function goLogin(){
+document.getElementById("loginBtn").addEventListener("click", async function(){
+
   alert("CLICK WORKING");
-  window.location = "login.html";
-}
-function goSignup(){
-  window.location = "signup.html";
-}
+
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  const res = await fetch("https://earn-backend.onrender.com/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
+  });
+
+  const data = await res.json();
+
+  if(data.token){
+    alert("Login success ✅");
+    window.location = "app.html";
+  } else {
+    alert(data.message);
+  }
+
+});
 </script>
 
 </body>
