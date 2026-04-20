@@ -12,7 +12,7 @@ res.send("🔥 BACKEND RUNNING ✅");
 app.post("/login", (req, res) => {
 const { email, password } = req.body;
 
-if (email === "[test@gmail.com](mailto:test@gmail.com)" && password === "1234") {
+if (email === "test@gmail.com" && password === "1234") {
 return res.json({
 token: "demo-token",
 user: { email }
