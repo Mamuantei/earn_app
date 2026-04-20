@@ -17,33 +17,17 @@
 </p>
 
 <script>
-async function login(){
-  const email = document.getElementById("email").value;
-  const password = document.getElementById("password").value;
+window.onload = function () {
+  alert("SCRIPT LOADED");
 
-  if(!email || !password){
-    alert("Enter email & password");
-    return;
-  }
-
-  const res = await fetch("https://earn-backend.onrender.com/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json"
-    },
-    body: JSON.stringify({ email, password })
+  document.getElementById("loginBtn").addEventListener("click", function () {
+    alert("CLICK WORKING");
   });
+};
+</script>
 
-  const data = await res.json();
-
-  if(data.token){
-    alert("Login success ✅");
-    localStorage.setItem("token", data.token);
-    window.location = "app.html";
-  } else {
-    alert(data.message);
-  }
-}
+<script>
+alert("SCRIPT LOADED");
 </script>
 
 </body>
