@@ -17,17 +17,33 @@
 </p>
 
 <script>
-window.onload = function () {
-  alert("SCRIPT LOADED");
+document.getElementById("loginBtn").addEventListener("click", async function(){
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
 
-  document.getElementById("loginBtn").addEventListener("click", function () {
-    alert("CLICK WORKING");
+  if(!email || !password){
+    alert("Please enter email and password");
+    return;
+  }
+
+  const res = await fetch("http://localhost:3000/login", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ email, password })
   });
-};
-</script>
 
-<script>
-alert("SCRIPT LOADED");
+  const data = await res.json();
+
+  if(data.token){
+    alert("Login success ✅");
+    localStorage.setItem("token", data.token);
+    window.location = "app.html";
+  } else {
+    alert(data.message);
+  }
+});
 </script>
 
 </body>
